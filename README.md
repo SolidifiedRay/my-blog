@@ -1,4 +1,4 @@
 # my-blog
-A blog powereed by jekyll 
+A blog powered by jekyll 
 
 https://solidifiedray.github.io/my-blog/
