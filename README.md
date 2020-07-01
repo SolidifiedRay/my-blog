@@ -1,2 +1,2 @@
 # my-blog
-power by jekyll
+power by jekyll https://solidifiedray.github.io/my-blog/
