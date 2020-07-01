@@ -218,6 +218,7 @@ social:
   GitHub: https://github.com/SolidifiedRay
   Weibo: https://www.weibo.com/5121541026/profile?rightmod=1&wvr=6&mod=personnumber
   Bilibili: https://space.bilibili.com/3562232
+  Mail: "mailto: yc3346@nyu.edu"
 
 # Social Links Icons
 # Icon Mapping:
@@ -232,6 +233,7 @@ social_icons:
   Twitter: twitter
   Weibo: weibo
   Bilibili: television
+  Mail: envelope-o
 
 
 # Sidebar Avatar
