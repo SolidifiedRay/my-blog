@@ -9,19 +9,19 @@ tags:
 - Python
 ---
 
-This is a short abstract of [in-toto](https://in-toto.io/), a framework to secure the integrity of software supply chains. It is a project from [Secure System Lab](https://ssl.engineering.nyu.edu/) and I start participate in it since June 2020. 
+This is a short abstract of [in-toto](https://in-toto.io/), a framework to secure the integrity of software supply chains. It is a project from [Secure System Lab](https://ssl.engineering.nyu.edu/) that I am participating as a Student Researcher now.
 
-First, what is a software supply chains and why is it important?  
+First, what is a software supply chain and why is it important?  
 ![software supply chain](https://ssl.engineering.nyu.edu/img/projects/in-toto_diagram.png)
-The software supply chain is a series of steps to make software can run in the end-users system. It may include steps such as test, build, and package. It is important because if someone compromise the supply chain, attacker can hide and distribute malware to a significant number of users, given the app's popularity. Microsoft has a well explained short video about supply chain attack, you can view it [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/supply-chain-malware).  
+The software supply chain is a series of steps to make software run in the end-users system. It may include steps such as test, build, and package. It is important because if someone compromise the supply chain, attacker can hide and distribute malware to a significant number of users, given the app's popularity. Microsoft has a well explained short video about supply chain attack, you can view it [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/supply-chain-malware).  
 
-Then how can we protect the software supply chain? Citing from Microsoft's document above, one approach is to “deploy strong code integrity policies to allow only authorized apps to run.” The role of in-toto is similar to this. In-toto secures the software supply chain by specifying information of each step and who is authorized to perform each step.
+Then the question is, how can we protect the software supply chain? Citing from Microsoft's document above, one approach is to “deploy strong code integrity policies to allow only authorized apps to run.” The role of in-toto is similar to this. In-toto secures the software supply chain by specifying information of each step and who is authorized to carry out each step.
 
 I will use in-toto [demo](https://github.com/in-toto/demo) to help understand how in-toto works. In this demo, we need to perform all steps of a simple software supply chain: Alice is the **owner** of this project, Bob is the developer, and Carl packages the software. Bob and Carl can also be called as project **functionaries**, who will carry out the steps of the supply chain.  
 
-First, Alice needs to create a **supply chain layout**. **Supply chain layout** is a signed file that includes the details and requirements of each step. It also includes a list of the **functionaries** who are in charge of carrying out each step. For this demo, it will include Bob's and Carl's public key. The layout of this demo will include the following data:      
+First, Alice needs to create a **supply chain layout**. **Supply chain layout** is a signed file that includes the details and requirements of each step. It also includes a list of the **functionaries** who are in charge of carrying out each step. For this demo, it includes Bob's and Carl's public key. The layout file of this demo includes the following data:      
 
-The layout file will be signed with owner's private key. In this demo, it is Alice's private key.   
+It will be signed with owner's private key. In this demo, it is Alice's private key.   
 <pre>
 	<code class="json">
 		"signatures": [
@@ -134,4 +134,4 @@ This link file will be singed with Bob's private keys. It also includes the name
 
 After all the steps are carried out, the client will have the layout file and all the link files. Then the client can use these files to verify any unexpected changes in the supply chain. 
 
-This is just a very rough illustration of how in-toto works, and I have to admit that I am not a good writer. I may come back to revise this blog sometime later. You can also check the full, well-explained document of in-toto [here](https://github.com/in-toto/docs/blob/master/in-toto-spec.md).
+This is just a very rough illustration of how in-toto works, and I have to admit that I am not a good writer. I may come back to revise this blog sometime later. You can also check the full, well explained document of in-toto [here](https://github.com/in-toto/docs/blob/master/in-toto-spec.md).
