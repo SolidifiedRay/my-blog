@@ -11,6 +11,9 @@ tags:
 
 This is a short abstract of [in-toto](https://in-toto.io/), a framework to secure the integrity of software supply chains. It is a project from [Secure System Lab](https://ssl.engineering.nyu.edu/) that I am participating as a Student Researcher now.
 
+* I also made a short video in Chinese: [link](https://www.bilibili.com/video/BV1vz4y1X7UF)
+* 我也做了一个中文版本的演示视频：[链接](https://www.bilibili.com/video/BV1vz4y1X7UF)
+
 First, what is a software supply chain and why is it important?  
 ![software supply chain](https://ssl.engineering.nyu.edu/img/projects/in-toto_diagram.png)
 The software supply chain is a series of steps to make software run in the end-users system. It may include steps such as test, build, and package. It is important because if someone compromise the supply chain, attacker can hide and distribute malware to a significant number of users, given the app's popularity. Microsoft has a well explained short video about supply chain attack, you can view it [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/supply-chain-malware).  
