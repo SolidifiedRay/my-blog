@@ -111,18 +111,18 @@
 
 
 
-<meta name="description" content="This is a short abstract of in-toto, a framework to secure the integrity of software supply chains. It is a project from Secure System Lab and I start participate in it since June 2020.">
+<meta name="description" content="This is a short abstract of in-toto, a framework to secure the integrity of software supply chains. It is a project from Secure System Lab that I am participating as a Student Researcher now.">
 <meta name="keywords" content="in-toto, Security, Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to in-toto">
 <meta property="og:url" content="http://localhost:4000/my-blog/projects/2020/07/01/in-toto-summary/">
 <meta property="og:site_name" content="Solidified Ray">
-<meta property="og:description" content="This is a short abstract of in-toto, a framework to secure the integrity of software supply chains. It is a project from Secure System Lab and I start participate in it since June 2020.">
+<meta property="og:description" content="This is a short abstract of in-toto, a framework to secure the integrity of software supply chains. It is a project from Secure System Lab that I am participating as a Student Researcher now.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ssl.engineering.nyu.edu/img/projects/in-toto_diagram.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to in-toto">
-<meta name="twitter:description" content="This is a short abstract of in-toto, a framework to secure the integrity of software supply chains. It is a project from Secure System Lab and I start participate in it since June 2020.">
+<meta name="twitter:description" content="This is a short abstract of in-toto, a framework to secure the integrity of software supply chains. It is a project from Secure System Lab that I am participating as a Student Researcher now.">
 <meta name="twitter:image" content="https://ssl.engineering.nyu.edu/img/projects/in-toto_diagram.png">
 
 
@@ -388,10 +388,6 @@
 
           
             
-                <div class="post-description">
-                    
-                </div>
-            
           
 
         </div>
@@ -419,19 +415,24 @@
 
 
 
-  <p>This is a short abstract of <a href="https://in-toto.io/">in-toto</a>, a framework to secure the integrity of software supply chains. It is a project from <a href="https://ssl.engineering.nyu.edu/">Secure System Lab</a> and I start participate in it since June 2020.</p>
+  <p>This is a short abstract of <a href="https://in-toto.io/">in-toto</a>, a framework to secure the integrity of software supply chains. It is a project from <a href="https://ssl.engineering.nyu.edu/">Secure System Lab</a> that I am participating as a Student Researcher now.</p>
 
-<p>First, what is a software supply chains and why is it important?<br />
+<ul>
+  <li>I also made a short video in Chinese: <a href="https://www.bilibili.com/video/BV1vz4y1X7UF">link</a></li>
+  <li>我也做了一个中文版本的演示视频：<a href="https://www.bilibili.com/video/BV1vz4y1X7UF">链接</a></li>
+</ul>
+
+<p>First, what is a software supply chain and why is it important?<br />
 <img src="https://ssl.engineering.nyu.edu/img/projects/in-toto_diagram.png" alt="software supply chain" />
-The software supply chain is a series of steps to make software can run in the end-users system. It may include steps such as test, build, and package. It is important because if someone compromise the supply chain, attacker can hide and distribute malware to a significant number of users, given the app’s popularity. Microsoft has a well explained short video about supply chain attack, you can view it <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/supply-chain-malware">here</a>.</p>
+The software supply chain is a series of steps to make software run in the end-users system. It may include steps such as test, build, and package. It is important because if someone compromise the supply chain, attacker can hide and distribute malware to a significant number of users, given the app’s popularity. Microsoft has a well explained short video about supply chain attack, you can view it <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/supply-chain-malware">here</a>.</p>
 
-<p>Then how can we protect the software supply chain? Citing from Microsoft’s document above, one approach is to “deploy strong code integrity policies to allow only authorized apps to run.” The role of in-toto is similar to this. In-toto secures the software supply chain by specifying information of each step and who is authorized to perform each step.</p>
+<p>Then the question is, how can we protect the software supply chain? Citing from Microsoft’s document above, one approach is to “deploy strong code integrity policies to allow only authorized apps to run.” The role of in-toto is similar to this. In-toto secures the software supply chain by specifying information of each step and who is authorized to carry out each step.</p>
 
 <p>I will use in-toto <a href="https://github.com/in-toto/demo">demo</a> to help understand how in-toto works. In this demo, we need to perform all steps of a simple software supply chain: Alice is the <strong>owner</strong> of this project, Bob is the developer, and Carl packages the software. Bob and Carl can also be called as project <strong>functionaries</strong>, who will carry out the steps of the supply chain.</p>
 
-<p>First, Alice needs to create a <strong>supply chain layout</strong>. <strong>Supply chain layout</strong> is a signed file that includes the details and requirements of each step. It also includes a list of the <strong>functionaries</strong> who are in charge of carrying out each step. For this demo, it will include Bob’s and Carl’s public key. The layout of this demo will include the following data:</p>
+<p>First, Alice needs to create a <strong>supply chain layout</strong>. <strong>Supply chain layout</strong> is a signed file that includes the details and requirements of each step. It also includes a list of the <strong>functionaries</strong> who are in charge of carrying out each step. For this demo, it includes Bob’s and Carl’s public key. The layout file of this demo includes the following data:</p>
 
-<p>The layout file will be signed with owner’s private key. In this demo, it is Alice’s private key.</p>
+<p>It will be signed with owner’s private key. In this demo, it is Alice’s private key.</p>
 <pre>
 	<code class="json">
 		"signatures": [
@@ -544,7 +545,7 @@ In the layout file, Alice will specify the “clone” step as the following:</p
 
 <p>After all the steps are carried out, the client will have the layout file and all the link files. Then the client can use these files to verify any unexpected changes in the supply chain.</p>
 
-<p>This is just a very rough illustration of how in-toto works, and I have to admit that I am not a good writer. I may come back to revise this blog sometime later. You can also check the full, well-explained document of in-toto <a href="https://github.com/in-toto/docs/blob/master/in-toto-spec.md">here</a>.</p>
+<p>This is just a very rough illustration of how in-toto works, and I have to admit that I am not a good writer. I may come back to revise this blog sometime later. You can also check the full, well explained document of in-toto <a href="https://github.com/in-toto/docs/blob/master/in-toto-spec.md">here</a>.</p>
 
 
       
@@ -670,7 +671,7 @@ In the layout file, Alice will specify the “clone” step as the following:</p
                alt="Solidified Ray" />
           <p class="site-author-name" itemprop="name">Solidified Ray</p>
            
-              <p class="site-description motion-element" itemprop="description">A blog powered by jekyll</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           
         </div>
         <nav class="site-state motion-element">
