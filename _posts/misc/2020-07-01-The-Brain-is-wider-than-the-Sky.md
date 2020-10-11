@@ -5,6 +5,7 @@ categories:
 - Misc
 tags:
 - Games
+- Chinese
 ---
 
 前段时间玩素晴日发现的一首的诗   

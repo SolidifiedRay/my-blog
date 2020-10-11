@@ -13,8 +13,8 @@
 <lastmod>2020-07-04T00:00:00-07:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/my-blog/study%20notes/2020/08/29/binary-search/</loc>
-<lastmod>2020-08-29T00:00:00-07:00</lastmod>
+<loc>http://localhost:4000/my-blog/notes/2020/10/11/Cracking-with-John-the-Ripper/</loc>
+<lastmod>2020-10-11T00:00:00-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/my-blog/category/</loc>
@@ -23,13 +23,13 @@
 <loc>http://localhost:4000/my-blog/tags/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/my-blog/archives/</loc>
-</url>
-<url>
 <loc>http://localhost:4000/my-blog/tag/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/my-blog/categories/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/my-blog/archives/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/my-blog/</loc>
