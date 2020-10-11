@@ -9,7 +9,7 @@ An image steganography challenge I wrote for CSAW Red 2020
 
 The picture probably needs to be squared away...  
 Point: 150  
-![image](/assets/images/posts/2020/alert.png)
+![image](/my-blog/assets/images/posts/2020/alert.png)
 
 The goal of this challenge is to display the full image and find the hidden flag. The "square" in the description is a hint that the original picture is square.     
 
