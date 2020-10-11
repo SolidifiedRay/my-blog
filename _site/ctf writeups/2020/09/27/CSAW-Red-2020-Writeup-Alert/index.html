@@ -83,7 +83,7 @@
 <link href="/my-blog/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Jekyll, NexT" />
+  <meta name="keywords" content="" />
 
 
 
@@ -111,17 +111,19 @@
 
 
 
-<meta name="description" content="A blog powered by jekyll">
+<meta name="description" content="An image steganography challenge I wrote for CSAW Red 2020">
 <meta name="keywords" content="Jekyll, NexT">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Solidified Ray">
-<meta property="og:url" content="http://localhost:4000/my-blog/tag/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAW Red 2020 Writeups - Alert">
+<meta property="og:url" content="http://localhost:4000/my-blog/ctf%20writeups/2020/09/27/CSAW-Red-2020-Writeup-Alert/">
 <meta property="og:site_name" content="Solidified Ray">
-<meta property="og:description" content="A blog powered by jekyll">
+<meta property="og:description" content="An image steganography challenge I wrote for CSAW Red 2020">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="/assets/images/posts/2020/alert.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Solidified Ray">
-<meta name="twitter:description" content="A blog powered by jekyll">
+<meta name="twitter:title" content="CSAW Red 2020 Writeups - Alert">
+<meta name="twitter:description" content="An image steganography challenge I wrote for CSAW Red 2020">
+<meta name="twitter:image" content="/assets/images/posts/2020/alert.png">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -154,7 +156,7 @@
 
 
 
-  <title>Tag | Solidified Ray</title>
+  <title>CSAW Red 2020 Writeups - Alert | Solidified Ray</title>
   
 
 
@@ -179,7 +181,7 @@
   
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,186 +294,216 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-<div id="posts" class="posts-collapse" hidden>
-  <div class="collection-title">
-    <h1>
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/my-blog/ctf%20writeups/2020/09/27/CSAW-Red-2020-Writeup-Alert/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Solidified Ray">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Solidified Ray">
+    </span>
+
     
-    <small>Tag</small>
-    </h1>
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            CSAW Red 2020 Writeups - Alert
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-27T00:00:00-07:00">
+                2020-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/my-blog/category/#/CTF%20Writeups" itemprop="url" rel="index">
+                    <span itemprop="name">CTF Writeups</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>An image steganography challenge I wrote for CSAW Red 2020</p>
+
+<p>The picture probably needs to be squared away…<br />
+Point: 150<br />
+<img src="/assets/images/posts/2020/alert.png" alt="image" /></p>
+
+<p>The goal of this challenge is to display the full image and find the hidden flag. The “square” in the description is a hint that the original picture is square.</p>
+
+<p>* A brief <a href="https://stackoverflow.com/a/30551737">explanation</a> of PNG file structure.</p>
+
+<p>Solution:</p>
+<ol>
+  <li>Use a hex editor to modify the image’s height. In the IHDR chunk, we can see that the current height of the image is “01 18” and the width is “02 58”. Since this image is square, we need to change the height to “02 58”.</li>
+  <li>Run “pngcheck -vf alert.png”.</li>
+  <li>There is an error message: “CRC error in chunk IHDR (computed be6698dc, expected 80d6882d)”.</li>
+  <li>Open the hex editor again. In the IHDR chunk, find the number “80d6882d” and change it to “be6698dc”.</li>
+  <li>Open the PNG and find the flag.</li>
+</ol>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/my-blog/notes/2020/10/11/Cracking-with-John-the-Ripper/" rel="next" title="Cracking with John the Ripper">
+                <i class="fa fa-chevron-left"></i> Cracking with John the Ripper
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/my-blog/projects/2020/07/04/in-toto-summary/" rel="prev" title="Introduction to in-toto">
+                Introduction to in-toto <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
   </div>
-
-  
-  
-
-  
-    
-    
-
-    
-      
-
-      
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article" route="/Games">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/my-blog/misc/2020/07/01/The-Brain-is-wider-than-the-Sky/" itemprop="url">
-              
-                <span itemprop="name">The Brain—is wider than the Sky—</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-01T00:00:00-07:00"
-              content="2020-07-01" >
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-    
-  
-    
-    
-
-    
-      
-
-      
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article" route="/Chinese">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/my-blog/misc/2020/07/01/The-Brain-is-wider-than-the-Sky/" itemprop="url">
-              
-                <span itemprop="name">The Brain—is wider than the Sky—</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-01T00:00:00-07:00"
-              content="2020-07-01" >
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-    
-  
-    
-    
-
-    
-      
-
-      
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article" route="/in-toto">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/my-blog/projects/2020/07/04/in-toto-summary/" itemprop="url">
-              
-                <span itemprop="name">Introduction to in-toto</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-04T00:00:00-07:00"
-              content="2020-07-04" >
-          07-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-    
-  
-    
-    
-
-    
-      
-
-      
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article" route="/Security">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/my-blog/projects/2020/07/04/in-toto-summary/" itemprop="url">
-              
-                <span itemprop="name">Introduction to in-toto</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-04T00:00:00-07:00"
-              content="2020-07-04" >
-          07-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-    
-  
-    
-    
-
-    
-      
-
-      
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article" route="/Python">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/my-blog/projects/2020/07/04/in-toto-summary/" itemprop="url">
-              
-                <span itemprop="name">Introduction to in-toto</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-04T00:00:00-07:00"
-              content="2020-07-04" >
-          07-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-    
-  
 </div>
-
-<nav class="pagination"></nav>
 
 
           </div>
@@ -479,6 +511,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -494,6 +530,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
 
       
 
@@ -760,99 +807,9 @@
 
 
 
-  
-    
+  <script type="text/javascript" src="/my-blog/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/my-blog/assets/js/src/post-details.js?v=5.1.1"></script>
 
-
-
-  <script type="text/javascript" src="/my-blog/assets/js/src/paginator.js"></script>
-  <script>
-    (function() {
-      // Url route
-      var hash = window.location.hash.substring(1);
-      $(window).on('hashchange', function() {
-        location.reload();
-        $(this).scrollTop(0);
-      });
-
-      if (!hash)
-        hash = "/";
-      $('[route][route!="' + hash + '"]').remove();
-      $('#posts').show();
-
-      // Pagination
-      
-
-      
-
-      
-        if (hash == "/")  {
-          window.location = "/my-blog/tags/";
-          return;
-        }
-
-        
-        
-
-        var maps = { 'Games': 1, 'Chinese': 1, 'in-toto': 1, 'Security': 1, 'Python': 1, };
-        var dirs = hash.split("/");
-        var collection = decodeURIComponent(dirs[1]);
-        dirs.splice(0, 2);
-        hash = "/" + dirs.join("/");
-
-        if (!collection) {
-          window.location = "/my-blog/tags/";
-          return;
-        }
-
-        $('.collection-title')[0].childNodes[1].childNodes[0].nodeValue = collection;
-        document.title = "Tag: " + collection + " | Solidified Ray";
-
-        var sizes = maps[encodeURIComponent(collection)];
-        var base = "#" + "/" + collection;
-      
-
-      var current = 0;
-
-      if (hash != '/') {
-        
-
-        var reg = /(?:\/page(\d+))/;
-        var res = reg.exec(hash);
-
-        if (res && res[1])
-          current = parseInt(res[1]);
-      }
-      else {
-        current = 1;
-      }
-
-      var total = Math.floor(sizes / 10);
-      if (sizes % 10 > 0) {
-        total = total + 1;
-      }
-
-      if (total <= 1) {
-        $('nav.pagination').remove();
-      }
-      else {
-        var content = paginator({
-                          prev_text: '<i class="fa fa-angle-left"></i>',
-                          next_text: '<i class="fa fa-angle-right"></i>',
-                          current: current,
-                          total: total,
-                          base: base,
-                          format: "/page%d",
-                          mid_size: 1,
-                          end_size: 1
-                        });
-          $('nav.pagination').html(content);
-      }
-    })();
-  </script>
-
-
-  
 
   
 
