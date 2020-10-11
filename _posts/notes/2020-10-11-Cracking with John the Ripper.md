@@ -1,5 +1,5 @@
 ---
-title: Cracking with John the Ripper
+title: Cracking Passwords with John the Ripper
 date: 2020-10-11
 categories:
 - Notes
