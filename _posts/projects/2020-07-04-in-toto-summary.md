@@ -3,10 +3,6 @@ title: Introduction to in-toto
 date: 2020-07-04
 categories:
 - Projects
-tags:
-- in-toto
-- Security
-- Python
 ---
 
 This is a short abstract of [in-toto](https://in-toto.io/), a framework to secure the integrity of software supply chains. It is a project from [Secure System Lab](https://ssl.engineering.nyu.edu/) that I am participating as a Student Researcher now.

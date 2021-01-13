@@ -3,9 +3,6 @@ title: The Brain—is wider than the Sky—
 date: 2020-07-01
 categories:
 - Misc
-tags:
-- Games
-- Chinese
 ---
 
 前段时间玩素晴日发现的一首的诗   

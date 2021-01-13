@@ -111,17 +111,17 @@
 
 
 
-<meta name="description" content="Learn how to crack hash files with John the Ripper">
+<meta name="description" content="A summary of my contribution during the summer and fall semesters">
 <meta name="keywords" content="Jekyll, NexT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cracking with John the Ripper">
-<meta property="og:url" content="http://localhost:4000/my-blog/notes/2020/10/11/Cracking-with-John-the-Ripper/">
+<meta property="og:title" content="In-toto 2020 Progress Report">
+<meta property="og:url" content="http://localhost:4000/my-blog/projects/2020/12/07/in-toto-progress-2020/">
 <meta property="og:site_name" content="Solidified Ray">
-<meta property="og:description" content="Learn how to crack hash files with John the Ripper">
+<meta property="og:description" content="A summary of my contribution during the summer and fall semesters">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cracking with John the Ripper">
-<meta name="twitter:description" content="Learn how to crack hash files with John the Ripper">
+<meta name="twitter:title" content="In-toto 2020 Progress Report">
+<meta name="twitter:description" content="A summary of my contribution during the summer and fall semesters">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -154,7 +154,7 @@
 
 
 
-  <title>Cracking with John the Ripper | Solidified Ray</title>
+  <title>In-toto 2020 Progress Report | Solidified Ray</title>
   
 
 
@@ -304,7 +304,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/my-blog/notes/2020/10/11/Cracking-with-John-the-Ripper/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/my-blog/projects/2020/12/07/in-toto-progress-2020/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Solidified Ray">
@@ -324,7 +324,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Cracking with John the Ripper
+            In-toto 2020 Progress Report
           
         </h1>
         
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-11T00:00:00-07:00">
-                2020-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-07T00:00:00-08:00">
+                2020-12-07
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/my-blog/category/#/Notes" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
+                  <a href="/my-blog/category/#/Projects" itemprop="url" rel="index">
+                    <span itemprop="name">Projects</span>
                   </a>
                 </span>
 
@@ -417,16 +417,45 @@
 
 
 
-  <p>Learn how to crack hash files with John the Ripper</p>
+  <p>A summary of my contribution during the summer and fall semesters</p>
 
-<p>John the Ripper is an open source password-cracking tools. John the Ripper can uses various options to crack passowrds using the <code class="highlighter-rouge">--format</code> option, such as MD5, SHA1, SHA256, and so on. John the Ripper can also use <code class="highlighter-rouge">--wordlist</code> option to compare the hashes against. If the password can be find within the wordlist, the speed of cracking the password will increase. One of the popular wordlist is <a href="https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt">‘rockyou.txt’</a></p>
+<h1 id="in-toto">in-toto</h1>
 
-<p>For example, if you want to crack a file named ‘md5.txt’, and the wordlist is in ‘usr/share/wordlist’, you can run the following command:<br />
-<code class="highlighter-rouge">john --wordlist=/usr/share/wordlist/rockyou.txt --format=raw-md5 md5.txt</code></p>
+<p>I added a flag that accepts a target directory to put generated metadata in, and I also provided related unit tests. Default is the current working directory.<br />
+Behaviors:</p>
+<pre>
+    <code>
+        $ in-toto-run &lt;...&gt; --metadata-directory --  
+        $ in-toto-record stop &lt;...&gt; --metadata-directory --  
+    </code>
+</pre>
+<p><a href="https://github.com/in-toto/in-toto/pull/364">https://github.com/in-toto/in-toto/pull/364</a></p>
 
-<p>You can run <code class="highlighter-rouge">john --help</code> for more command line options.</p>
+<h1 id="in-toto-layout-web-tool">in-toto layout web tool</h1>
 
-<p>* You can practise John the Ripper in <a href="https://dca.immersivelabs.online/labs/introduction-to-john-the-ripper/">Immersive Labs</a></p>
+<p>I fixed the codebase’s dependency issues by migrating it to the latest Flask version. I also added support for python3. Details are listed in the commit messages.<br />
+<a href="https://github.com/in-toto/layout-web-tool/pull/43">https://github.com/in-toto/layout-web-tool/pull/43</a><br />
+<a href="https://github.com/in-toto/layout-web-tool/pull/51">https://github.com/in-toto/layout-web-tool/pull/51</a></p>
+
+<p>I worked with Isha, another undergraduate student, on issue#6 (Enhance layout creation). We added a new function to the layout-web-tool. Given two ‘snapshots’ of a file structure, ‘before’ and ‘after’, this function will return which files were unchanged, modified, added, or removed. With this new feature, we can improve the algorithm for creating an in-toto layout. Besides, we also set up Travis for this repo and added related unit tests.<br />
+<a href="https://github.com/in-toto/layout-web-tool/pull/46">https://github.com/in-toto/layout-web-tool/pull/46</a></p>
+
+<p>After finishing the above feature, I brainstormed some ideas that can further enhance the layout creation tool in the issue below.<br />
+<a href="https://github.com/in-toto/layout-web-tool/issues/48#issuecomment-670621099">https://github.com/in-toto/layout-web-tool/issues/48#issuecomment-670621099</a></p>
+
+<p>After discussing with other in-toto members, I started working on improving the artifacts rules generation function. The original function only generates MATCH rules and ALLOW rules. It simply adds MATCH rules for all available materials and adds ALLOW rules for all artifacts. I reimplemented the rule generation function and added more complexity. Now, the function only adds MATCH rules for materials from the previous step(link). With the new features that Isha and I created, I added the functionality of generating DELETE, MODIFY, and CREATE rules. And of course, I added related unit tests. I also compared the run time efficiency with different data structures and chose a suitable one.<br />
+<a href="https://github.com/in-toto/layout-web-tool/pull/49">https://github.com/in-toto/layout-web-tool/pull/49</a></p>
+
+<p>While I was working on enhancing the rules generation functions, Lukas discovered an interesting rule conflicting problem: when we delete an artifact from a previous step(link), the DELETE rule will not has an effect because of a previous MATCH rule. I opened an issue about this problem. For now, as Lukas recommended, I added a warning in the code that will warn for any delete rule that has no effect.<br />
+<a href="https://github.com/in-toto/docs/issues/41">https://github.com/in-toto/docs/issues/41</a></p>
+
+<h1 id="miscellaneous">Miscellaneous</h1>
+
+<p>In-toto uses the Google-style docstring format and the Napoleon Sphinx extension to auto-generate HTML docs. However, we still use a custom ‘Side Effects’ docstring section, which does not render nicely. I post some ideas and implemented some possible solutions for rendering custom docstring. I also reached out to Napoleon maintainer to see if they are interested in a PR that can solve this problem.<br />
+<a href="https://github.com/in-toto/in-toto/issues/401">https://github.com/in-toto/in-toto/issues/401</a></p>
+
+<p>This issue asks for a feature that can show output diff for in-toto demo test failures. I plan to finish this by the final week.<br />
+<a href="https://github.com/in-toto/demo/issues/16">https://github.com/in-toto/demo/issues/16</a></p>
 
 
       
@@ -531,8 +560,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/my-blog/assets/images/avatar.gif"
@@ -558,21 +596,12 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/my-blog/categories/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
 
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/my-blog/tags/">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
           
 
         </nav>
@@ -650,6 +679,34 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#in-toto"> <span class="nav-number">1</span> <span class="nav-text">in-toto</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#in-toto-layout-web-tool"> <span class="nav-number">2</span> <span class="nav-text">in-toto layout web tool</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#miscellaneous"> <span class="nav-number">3</span> <span class="nav-text">Miscellaneous</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -665,8 +722,8 @@
         <div class="copyright" >
   
   
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  &copy;  2020 - 
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-anchor"></i>
   </span>
