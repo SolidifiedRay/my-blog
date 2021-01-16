@@ -216,8 +216,7 @@ font:
 social:
   #LinkLabel: Link
   GitHub: https://github.com/SolidifiedRay
-  Weibo: https://www.weibo.com/5121541026/profile?rightmod=1&wvr=6&mod=personnumber
-  Bilibili: https://space.bilibili.com/3562232
+  Linkedin: https://www.linkedin.com/in/yuanrui-chen-aa8284195/
   Mail: "mailto: yc3346@nyu.edu"
 
 # Social Links Icons
@@ -230,9 +229,7 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
-  Bilibili: television
+  Linkedin: Linkedin
   Mail: envelope-o
 
 
